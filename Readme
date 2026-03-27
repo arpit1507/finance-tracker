@@ -8,45 +8,33 @@ A **Streamlit-based financial analytics dashboard** that helps users analyze the
 
 ### 📊 Data Analysis
 
-* Upload Excel financial data
-* Automatic preprocessing (date parsing, amount cleaning)
-* Income vs expense separation
-* Monthly transaction analysis
+Upload Excel financial data
+- Automatic preprocessing (date parsing, amount cleaning)
+- Income vs expense separation
+- Monthly transaction analysis
 
 ### 📈 Visualizations
 
-* Cumulative cashflow over time
-* Monthly income vs outgoing comparison
-* Category-wise spending (monthly + total)
-* Payment method distribution (pie + bar)
-* Top spending categories
+- Cumulative cashflow over time
+- Monthly income vs outgoing comparison
+- Category-wise spending (monthly + total)
+- Payment method distribution (pie + bar)
+- Top spending categories
 
 ### 🤖 Forecasting
 
-* SARIMA model for **future outgoing expense prediction**
-* 30-day forecast visualization
-* Summary metrics:
+- SARIMA model for **future outgoing expense prediction**
+- 30-day forecast visualization
+- Summary metrics:
 
-  * predicted total
-  * daily average
-  * highest predicted day
-
-### 💡 Key Insights
-
-* Highest spending category
-* Highest spending month (excluding fixed costs)
-* Spending patterns excluding:
-
-  * Rent
-  * Electricity bill
-  * Gas bill
-  * Sister
-
+  - predicted total
+  - daily average
+  - highest predicted day
 ---
 
 ## 📁 Project Structure
 
-```text
+```
 Financial_Data_Analyser/
 ├── pyproject.toml
 ├── README.md
@@ -79,7 +67,7 @@ Financial_Data_Analyser/
 
 Make sure you have **Python ≥ 3.10**
 
-```bash
+```
 uv venv
 source .venv/bin/activate
 uv pip install -e .
@@ -91,13 +79,13 @@ uv pip install -e .
 
 ### Run as a Python module
 
-```bash
+```
 uv run -m financial_data_analyser
 ```
 
 ### Run Streamlit dashboard
 
-```bash
+```
 uv run -m financial_data_analyser --streamlit
 ```
 
@@ -120,48 +108,47 @@ Your Excel file should contain:
 
 ### Data Processing
 
-* Convert dates → datetime
-* Convert amounts → float
-* Remove missing values
-* Separate income and expenses
+- Convert dates → datetime
+- Convert amounts → float
+- Remove missing values
+- Separate income and expenses
 
 ### Time Series Modeling
 
-* Aggregate daily outgoing expenses
-* Fill missing dates
-* Apply SARIMA `(p,d,q)(P,D,Q,s)` model
-* Forecast next 30 days
+- Aggregate daily outgoing expenses
+- Fill missing dates
+- Apply SARIMA `(p,d,q)(P,D,Q,s)` model
+- Forecast next 30 days
 
 ---
 
 ## ⚠️ Limitations
 
-* SARIMA captures **trend + seasonality**, but:
+- SARIMA captures **trend + seasonality**, but:
 
-  * cannot predict sudden large expenses
-  * struggles with irregular spending patterns
-* Forecast represents **baseline expected spending**, not exact values
+  - cannot predict sudden large expenses
+  - struggles with irregular spending patterns
+- Forecast represents **baseline expected spending**, not exact values
 
 ---
 
 ## 📸 Example Dashboard Sections
 
-* Overview metrics
-* Spending trends
-* Category analysis
-* Payment insights
-* Forecast section
-* Key insights summary
+- Overview metrics
+- Spending trends
+- Category analysis
+- Payment insights
+- Forecast section
 
 ---
 
 ## 💡 Future Improvements
 
-* LSTM-based forecasting
-* Anomaly detection (spending spikes)
-* Budget tracking & alerts
-* Category classification using ML
-* Export reports (PDF/CSV)
+- LSTM-based forecasting
+- Anomaly detection (spending spikes)
+- Budget tracking & alerts
+- Category classification using ML
+- Export reports (PDF/CSV)
 
 ---
 
