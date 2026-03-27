@@ -1,4 +1,3 @@
-```markdown
 # 💰 Financial Data Analyser
 
 A **Streamlit-based financial analytics dashboard** that helps users analyze transaction data, understand spending behavior, and forecast future outgoing expenses using a **SARIMA time series model**.
@@ -150,4 +149,4 @@ uv run -m financial_data_analyser --streamlit
 ## 🧑‍💻 Author
 
 **Arpit Agrawal**
-```
+
