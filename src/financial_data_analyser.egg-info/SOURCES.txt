@@ -1,0 +1,12 @@
+pyproject.toml
+src/financial_data_analyser/__init__.py
+src/financial_data_analyser/__main__.py
+src/financial_data_analyser/app.py
+src/financial_data_analyser/cli.py
+src/financial_data_analyser/data.py
+src/financial_data_analyser/model.py
+src/financial_data_analyser.egg-info/PKG-INFO
+src/financial_data_analyser.egg-info/SOURCES.txt
+src/financial_data_analyser.egg-info/dependency_links.txt
+src/financial_data_analyser.egg-info/requires.txt
+src/financial_data_analyser.egg-info/top_level.txt

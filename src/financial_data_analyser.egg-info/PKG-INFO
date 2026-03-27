@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: financial-data-analyser
+Version: 0.1.0
+Summary: A Streamlit dashboard for analysing financial transaction data and forecasting outgoing expenses with SARIMA.
+Author: Arpit Agrawal
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.0
+Requires-Dist: numpy>=1.24
+Requires-Dist: streamlit>=1.30
+Requires-Dist: plotly>=5.18
+Requires-Dist: statsmodels>=0.14
+Requires-Dist: openpyxl>=3.1
+Requires-Dist: matplotlib>=3.7

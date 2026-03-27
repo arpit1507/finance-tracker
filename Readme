@@ -1,0 +1,194 @@
+Here’s a **clean, professional README** you can directly use for your GitHub repo 👇
+
+---
+
+# 💰 Financial Data Analyser
+
+A **Streamlit-based financial analytics dashboard** that helps users analyze their transactions, understand spending behavior, and forecast future expenses using a **SARIMA time series model**.
+
+---
+
+## 🚀 Features
+
+### 📊 Data Analysis
+
+* Upload Excel financial data
+* Automatic preprocessing (date parsing, amount cleaning)
+* Income vs expense separation
+* Monthly transaction analysis
+
+### 📈 Visualizations
+
+* Cumulative cashflow over time
+* Monthly income vs outgoing comparison
+* Category-wise spending (monthly + total)
+* Payment method distribution (pie + bar)
+* Top spending categories
+
+### 🤖 Forecasting
+
+* SARIMA model for **future outgoing expense prediction**
+* 30-day forecast visualization
+* Summary metrics:
+
+  * predicted total
+  * daily average
+  * highest predicted day
+
+### 💡 Key Insights
+
+* Highest spending category
+* Highest spending month (excluding fixed costs)
+* Spending patterns excluding:
+
+  * Rent
+  * Electricity bill
+  * Gas bill
+  * Sister
+
+---
+
+## 📁 Project Structure
+
+```text
+Financial_Data_Analyser/
+├── pyproject.toml
+├── README.md
+├── .gitignore
+├── sample.xlsx
+├── src/
+│   └── financial_data_analyser/
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── cli.py
+│       ├── app.py
+│       ├── data.py
+│       └── model.py
+```
+
+### 🔹 File Description
+
+| File             | Description                               |
+| ---------------- | ----------------------------------------- |
+| `app.py`         | Streamlit dashboard UI                    |
+| `data.py`        | Data loading, preprocessing, and analysis |
+| `model.py`       | SARIMA model for forecasting              |
+| `cli.py`         | CLI entry point                           |
+| `__main__.py`    | Module entry point                        |
+| `pyproject.toml` | Package configuration                     |
+
+---
+
+## ⚙️ Installation
+
+Make sure you have **Python ≥ 3.10**
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+```
+
+---
+
+## ▶️ Running the Project
+
+### Run as a Python module
+
+```bash
+uv run -m financial_data_analyser
+```
+
+### Run Streamlit dashboard
+
+```bash
+uv run -m financial_data_analyser --streamlit
+```
+
+---
+
+## 📊 Input Data Format
+
+Your Excel file should contain:
+
+| Column Name          | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| `Buchungstag`        | Transaction date (format: DD.MM.YY)                 |
+| `Betrag`             | Transaction amount (comma decimal format supported) |
+| `Kategorie`          | Category of transaction                             |
+| `Method of Payement` | Payment method                                      |
+
+---
+
+## 🧠 Methodology
+
+### Data Processing
+
+* Convert dates → datetime
+* Convert amounts → float
+* Remove missing values
+* Separate income and expenses
+
+### Time Series Modeling
+
+* Aggregate daily outgoing expenses
+* Fill missing dates
+* Apply SARIMA `(p,d,q)(P,D,Q,s)` model
+* Forecast next 30 days
+
+---
+
+## ⚠️ Limitations
+
+* SARIMA captures **trend + seasonality**, but:
+
+  * cannot predict sudden large expenses
+  * struggles with irregular spending patterns
+* Forecast represents **baseline expected spending**, not exact values
+
+---
+
+## 📸 Example Dashboard Sections
+
+* Overview metrics
+* Spending trends
+* Category analysis
+* Payment insights
+* Forecast section
+* Key insights summary
+
+---
+
+## 💡 Future Improvements
+
+* LSTM-based forecasting
+* Anomaly detection (spending spikes)
+* Budget tracking & alerts
+* Category classification using ML
+* Export reports (PDF/CSV)
+
+---
+
+## 🧑‍💻 Author
+
+**Arpit Agrawal**
+
+---
+
+## ⭐ Why this project matters
+
+This project demonstrates:
+
+* Data preprocessing
+* Exploratory data analysis
+* Time series modeling (SARIMA)
+* Dashboard development (Streamlit)
+* Real-world financial insights
+
+---
+
+If you want, I can also:
+
+* add screenshots section 📸
+* write resume bullet points
+* or optimize this README for recruiters 💼

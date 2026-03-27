@@ -48,30 +48,30 @@ class Data:
             print(f"Error analyzing method of payments: {e}")
             return None, None
     
-    def monthly_expenses(self,newdata=None):
+    def monthly_expenses(self, newdata=None):
+        if newdata is None:
+            newdata = self.data
         try:
-            # Example monthly expenses analysis
             transactions_by_month = newdata.groupby(newdata['Buchungstag'].dt.to_period('M')).size()
             expenenses_by_month = newdata.groupby(newdata['Buchungstag'].dt.to_period('M'))['Betrag'].sum()
             average_expenses_by_month = newdata.groupby(newdata['Buchungstag'].dt.to_period('M'))['Betrag'].mean()
             return transactions_by_month, expenenses_by_month, average_expenses_by_month
         except Exception as e:
             print(f"Error analyzing monthly expenses: {e}")
-            return None
+            return None, None, None
         
-    def category_analysis(self,newdata=None):
+    def category_analysis(self, newdata=None):
+        if newdata is None:
+            newdata = self.data
         try:
-            # Example category analysis
             category_counts = newdata['Kategorie'].value_counts()
             each_category_sum = newdata.groupby('Kategorie')['Betrag'].sum()
-            # each category for each method of payement
-            ECEMP=newdata.groupby(['Kategorie','Method of Payement'])['Betrag'].sum().unstack(fill_value=0)
-            #each category for each month
-            ECEM=newdata.groupby(['Kategorie',newdata['Buchungstag'].dt.to_period('M')])['Betrag'].sum().unstack(fill_value=0)
-            return category_counts, each_category_sum.sort_values(ascending=False),ECEMP,ECEM
+            ECEMP = newdata.groupby(['Kategorie', 'Method of Payement'])['Betrag'].sum().unstack(fill_value=0)
+            ECEM = newdata.groupby(['Kategorie', newdata['Buchungstag'].dt.to_period('M')])['Betrag'].sum().unstack(fill_value=0)
+            return category_counts, each_category_sum.sort_values(ascending=False), ECEMP, ECEM
         except Exception as e:
             print(f"Error analyzing categories: {e}")
-            return None, None
+            return None, None, None, None
     
 
 if __name__ == "__main__":
