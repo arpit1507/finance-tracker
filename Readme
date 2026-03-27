@@ -1,40 +1,38 @@
+````markdown
 # 💰 Financial Data Analyser
 
-A **Streamlit-based financial analytics dashboard** that helps users analyze their transactions, understand spending behavior, and forecast future expenses using a **SARIMA time series model**.
+A **Streamlit-based financial analytics dashboard** that helps users analyze transaction data, understand spending behavior, and forecast future outgoing expenses using a **SARIMA time series model**.
 
 ---
 
 ## 🚀 Features
 
 ### 📊 Data Analysis
-
-Upload Excel financial data
-- Automatic preprocessing (date parsing, amount cleaning)
-- Income vs expense separation
+- Upload Excel financial data
+- Automatic preprocessing of dates and amounts
+- Income vs outgoing transaction separation
 - Monthly transaction analysis
 
 ### 📈 Visualizations
-
 - Cumulative cashflow over time
 - Monthly income vs outgoing comparison
-- Category-wise spending (monthly + total)
-- Payment method distribution (pie + bar)
+- Category-wise spending analysis
+- Payment method distribution
 - Top spending categories
 
 ### 🤖 Forecasting
-
-- SARIMA model for **future outgoing expense prediction**
+- SARIMA model for future outgoing expense prediction
 - 30-day forecast visualization
-- Summary metrics:
-
-  - predicted total
-  - daily average
+- Summary forecast metrics:
+  - predicted total outgoing
+  - average daily outgoing
   - highest predicted day
+
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 Financial_Data_Analyser/
 ├── pyproject.toml
 ├── README.md
@@ -48,26 +46,26 @@ Financial_Data_Analyser/
 │       ├── app.py
 │       ├── data.py
 │       └── model.py
-```
+````
 
 ### 🔹 File Description
 
-| File             | Description                               |
-| ---------------- | ----------------------------------------- |
-| `app.py`         | Streamlit dashboard UI                    |
-| `data.py`        | Data loading, preprocessing, and analysis |
-| `model.py`       | SARIMA model for forecasting              |
-| `cli.py`         | CLI entry point                           |
-| `__main__.py`    | Module entry point                        |
-| `pyproject.toml` | Package configuration                     |
+| File             | Description                                     |
+| ---------------- | ----------------------------------------------- |
+| `app.py`         | Streamlit dashboard user interface              |
+| `data.py`        | Data loading, preprocessing, and analysis logic |
+| `model.py`       | SARIMA forecasting model                        |
+| `cli.py`         | Command-line entry point                        |
+| `__main__.py`    | Module entry point for `python -m` execution    |
+| `pyproject.toml` | Python package configuration                    |
 
 ---
 
 ## ⚙️ Installation
 
-Make sure you have **Python ≥ 3.10**
+Make sure you have **Python 3.10 or higher** installed.
 
-```
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -e .
@@ -79,13 +77,13 @@ uv pip install -e .
 
 ### Run as a Python module
 
-```
+```bash
 uv run -m financial_data_analyser
 ```
 
-### Run Streamlit dashboard
+### Run the Streamlit dashboard
 
-```
+```bash
 uv run -m financial_data_analyser --streamlit
 ```
 
@@ -93,14 +91,14 @@ uv run -m financial_data_analyser --streamlit
 
 ## 📊 Input Data Format
 
-Your Excel file should contain:
+Your Excel file should contain the following columns:
 
-| Column Name          | Description                                         |
-| -------------------- | --------------------------------------------------- |
-| `Buchungstag`        | Transaction date (format: DD.MM.YY)                 |
-| `Betrag`             | Transaction amount (comma decimal format supported) |
-| `Kategorie`          | Category of transaction                             |
-| `Method of Payement` | Payment method                                      |
+| Column Name          | Description                                        |
+| -------------------- | -------------------------------------------------- |
+| `Buchungstag`        | Transaction date in `DD.MM.YY` format              |
+| `Betrag`             | Transaction amount, including comma decimal format |
+| `Kategorie`          | Transaction category                               |
+| `Method of Payement` | Payment method used                                |
 
 ---
 
@@ -108,47 +106,47 @@ Your Excel file should contain:
 
 ### Data Processing
 
-- Convert dates → datetime
-- Convert amounts → float
-- Remove missing values
-- Separate income and expenses
+* Convert dates to `datetime`
+* Convert amount strings to numeric values
+* Remove missing values
+* Separate income and outgoing transactions
 
 ### Time Series Modeling
 
-- Aggregate daily outgoing expenses
-- Fill missing dates
-- Apply SARIMA `(p,d,q)(P,D,Q,s)` model
-- Forecast next 30 days
+* Aggregate outgoing expenses by day
+* Fill missing dates with zero values
+* Fit a SARIMA model
+* Forecast the next 30 days of outgoing expenses
 
 ---
 
 ## ⚠️ Limitations
 
-- SARIMA captures **trend + seasonality**, but:
+* SARIMA captures **trend and seasonality**, but:
 
-  - cannot predict sudden large expenses
-  - struggles with irregular spending patterns
-- Forecast represents **baseline expected spending**, not exact values
+  * cannot reliably predict sudden large expenses
+  * struggles with irregular or event-driven spending
+* Forecasts represent a **baseline expected spending trend**, not exact future values
 
 ---
 
-## 📸 Example Dashboard Sections
+## 📸 Dashboard Sections
 
-- Overview metrics
-- Spending trends
-- Category analysis
-- Payment insights
-- Forecast section
+* Overview metrics
+* Spending trends
+* Category analysis
+* Payment method insights
+* Forecast section
 
 ---
 
 ## 💡 Future Improvements
 
-- LSTM-based forecasting
-- Anomaly detection (spending spikes)
-- Budget tracking & alerts
-- Category classification using ML
-- Export reports (PDF/CSV)
+* LSTM-based forecasting
+* Anomaly detection for unusual spending spikes
+* Budget tracking and alerts
+* ML-based category classification
+* Export reports to PDF or CSV
 
 ---
 
@@ -156,3 +154,5 @@ Your Excel file should contain:
 
 **Arpit Agrawal**
 
+```
+```
