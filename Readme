@@ -1,4 +1,4 @@
-````markdown
+```markdown
 # 💰 Financial Data Analyser
 
 A **Streamlit-based financial analytics dashboard** that helps users analyze transaction data, understand spending behavior, and forecast future outgoing expenses using a **SARIMA time series model**.
@@ -32,7 +32,7 @@ A **Streamlit-based financial analytics dashboard** that helps users analyze tra
 
 ## 📁 Project Structure
 
-```text
+```
 Financial_Data_Analyser/
 ├── pyproject.toml
 ├── README.md
@@ -46,18 +46,20 @@ Financial_Data_Analyser/
 │       ├── app.py
 │       ├── data.py
 │       └── model.py
-````
+```
 
-### 🔹 File Description
+---
 
-| File             | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| `app.py`         | Streamlit dashboard user interface              |
-| `data.py`        | Data loading, preprocessing, and analysis logic |
-| `model.py`       | SARIMA forecasting model                        |
-| `cli.py`         | Command-line entry point                        |
-| `__main__.py`    | Module entry point for `python -m` execution    |
-| `pyproject.toml` | Python package configuration                    |
+## 🔹 File Description
+
+| File | Description |
+|------|-------------|
+| `app.py` | Streamlit dashboard user interface |
+| `data.py` | Data loading, preprocessing, and analysis logic |
+| `model.py` | SARIMA forecasting model |
+| `cli.py` | Command-line entry point |
+| `__main__.py` | Module entry point for `python -m` execution |
+| `pyproject.toml` | Python package configuration |
 
 ---
 
@@ -91,68 +93,86 @@ uv run -m financial_data_analyser --streamlit
 
 ## 📊 Input Data Format
 
-Your Excel file should contain the following columns:
-
-| Column Name          | Description                                        |
-| -------------------- | -------------------------------------------------- |
-| `Buchungstag`        | Transaction date in `DD.MM.YY` format              |
-| `Betrag`             | Transaction amount, including comma decimal format |
-| `Kategorie`          | Transaction category                               |
-| `Method of Payement` | Payment method used                                |
+| Column Name | Description |
+|-------------|-------------|
+| `Buchungstag` | Transaction date in `DD.MM.YY` format |
+| `Betrag` | Transaction amount (comma decimal supported) |
+| `Kategorie` | Transaction category |
+| `Method of Payement` | Payment method |
 
 ---
 
 ## 🧠 Methodology
 
 ### Data Processing
-
-* Convert dates to `datetime`
-* Convert amount strings to numeric values
-* Remove missing values
-* Separate income and outgoing transactions
+- Convert dates to datetime
+- Convert amounts to float
+- Remove missing values
+- Separate income and outgoing transactions
 
 ### Time Series Modeling
-
-* Aggregate outgoing expenses by day
-* Fill missing dates with zero values
-* Fit a SARIMA model
-* Forecast the next 30 days of outgoing expenses
+- Aggregate outgoing expenses by day
+- Fill missing dates
+- Fit SARIMA model
+- Forecast next 30 days
 
 ---
 
 ## ⚠️ Limitations
 
-* SARIMA captures **trend and seasonality**, but:
-
-  * cannot reliably predict sudden large expenses
-  * struggles with irregular or event-driven spending
-* Forecasts represent a **baseline expected spending trend**, not exact future values
+- SARIMA captures trend and seasonality but:
+  - cannot predict sudden large expenses
+  - struggles with irregular patterns
+- Forecast represents baseline expected spending
 
 ---
 
 ## 📸 Dashboard Sections
 
-* Overview metrics
-* Spending trends
-* Category analysis
-* Payment method insights
-* Forecast section
+- Overview metrics
+- Spending trends
+- Category analysis
+- Payment insights
+- Forecast section
 
 ---
 
 ## 💡 Future Improvements
 
-* LSTM-based forecasting
-* Anomaly detection for unusual spending spikes
-* Budget tracking and alerts
-* ML-based category classification
-* Export reports to PDF or CSV
+- LSTM-based forecasting
+- Anomaly detection
+- Budget tracking
+- ML-based categorization
+- Export reports
 
 ---
 
 ## 🧑‍💻 Author
 
 **Arpit Agrawal**
+```
 
-```
-```
+---
+
+# 🔥 Why your version broke
+
+You had:
+- ❌ extra ````markdown block  
+- ❌ nested code fences  
+- ❌ formatting conflicts  
+
+---
+
+# 🚀 After fixing
+
+Your README will:
+- render cleanly on GitHub  
+- look professional  
+- be recruiter-friendly  
+
+---
+
+If you want, I can:
+- add **badges (Python, Streamlit, ML)**  
+- add **screenshots section 📸**  
+- make it look like a **top-tier GitHub repo** ⭐
